@@ -2949,6 +2949,13 @@
   padding: 0.85rem 0.95rem;
   transition: border-color 0.2s, box-shadow 0.2s;
 }
+.auth-card .pwd-wrap input {
+  padding-right: 3.6rem;
+}
+.auth-card .pwd-wrap input::-ms-reveal,
+.auth-card .pwd-wrap input::-ms-clear {
+  display: none;
+}
 .auth-card .field input::placeholder {
   color: #9a9086;
   opacity: 1;

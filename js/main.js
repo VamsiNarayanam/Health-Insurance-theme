@@ -371,27 +371,31 @@
     }
     form.addEventListener("submit", (e) => {
       e.preventDefault();
+      const name = form.fullname.value.trim();
       const email = form.email.value.trim();
       const password = form.password.value;
       const role = form.role.value;
       const box = form.querySelector("[data-form-err]");
-      const errs = [];
-      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email || "")) errs.push("Enter a valid email address.");
-      if (!password || password.length < 6) errs.push("Password must be at least 6 characters.");
+      const errs = validUser(name, email, password);
       if (errs.length) {
         box.textContent = errs.join(" ");
         return;
       }
       const emailKey = email.toLowerCase();
-      const matches = accountsGet().filter(
+      const list = accountsGet();
+      const saved = list.find((a) => a.email && a.email.toLowerCase() === emailKey && a.role === role);
+      const passwordMatches = list.filter(
         (a) => a.email && a.email.toLowerCase() === emailKey && a.password === password
       );
-      const saved = matches.find((a) => a.role === role);
       const demo = role === "underwriter" ? DEMO.underwriter : DEMO.policyholder;
       let user = null;
       if (saved) {
+        if (saved.password !== password) {
+          box.textContent = "Email or password is incorrect for this account type.";
+          return;
+        }
         user = saved;
-      } else if (matches.length) {
+      } else if (passwordMatches.length) {
         box.textContent =
           role === "underwriter"
             ? "This email is a policyholder account. Choose Policyholder, or create an underwriter seat."
@@ -399,12 +403,24 @@
         return;
       } else if (emailKey === demo.email.toLowerCase() && password === demo.password) {
         user = demo;
-      }
-      if (!user) {
-        box.textContent = "Email or password is incorrect for this account type.";
-        return;
+      } else {
+        const desk = role === "underwriter";
+        user = {
+          name,
+          email,
+          password,
+          role,
+          city: "",
+          mobile: "",
+          product: desk ? "" : "Canopy Kin",
+          policy: desk ? "" : "CAN-KIN-DEMO",
+          desk: desk ? "Claims Desk BKC" : "",
+        };
+        list.push(user);
+        accountsSave(list);
       }
       const session = { ...user };
+      session.name = session.name || name;
       delete session.password;
       storageSet(session);
       location.href = session.role === "underwriter" ? "admin-dashboard.html" : "client-dashboard.html";

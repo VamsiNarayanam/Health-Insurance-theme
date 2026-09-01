@@ -848,7 +848,11 @@ label { display: block; font-size: 0.85rem; letter-spacing: 0.06em; margin-botto
 }
 .form-success.is-show { display: block; }
 .pwd-wrap { position: relative; }
-.pwd-wrap input { padding-right: 3rem; }
+.pwd-wrap input { padding-right: 3.6rem; }
+.pwd-wrap input::-ms-reveal,
+.pwd-wrap input::-ms-clear {
+  display: none;
+}
 .pwd-toggle {
   position: absolute; right: 0.4rem; top: 50%; transform: translateY(-50%);
   border: 0; background: none; cursor: pointer; color: var(--fog); font-size: 0.78rem;
