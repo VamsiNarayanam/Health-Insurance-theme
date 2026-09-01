@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>This branch isn’t on the canopy — 404 | Stackly Canopy</title>
+  <meta name="description" content="This page is not on the static demo. Go back or return home.">
+  <link rel="icon" href="images/favicon.webp" type="image/webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,560;0,9..144,600;1,9..144,450;1,9..144,560&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/pages.css?v=404big">
+  <link rel="stylesheet" href="css/responsive.css?v=foot3">
+  <style>
+    html, body.lost-page {
+      height: 100%;
+      max-height: 100dvh;
+      overflow: hidden !important;
+    }
+    .lost-code {
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: clamp(5.4rem, 16vw, 9.25rem);
+      font-weight: 600;
+      line-height: 0.86;
+      letter-spacing: -0.045em;
+      color: var(--canopy);
+    }
+    .lost h1 {
+      font-size: clamp(1.9rem, 4.8vw, 3.35rem);
+      max-width: 16ch;
+      margin-top: 0.55rem;
+    }
+  </style>
+</head>
+<body class="grain lost-page">
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="preloader-inner">
+      <svg viewBox="0 0 200 220" fill="none">
+        <path class="seed" d="M100 188c8-4 14-14 14-24 0-16-14-28-14-28s-14 12-14 28c0 10 6 20 14 24z" fill="#B86A3D"/>
+        <path class="vein" d="M100 160V72" stroke="#F4EBD7" stroke-width="1.6" stroke-linecap="round" pathLength="1"/>
+        <path class="canopy-draw" d="M100 78c-28 4-54 28-62 58 18 6 40-2 62-18 22 16 44 24 62 18-8-30-34-54-62-58z" fill="none" stroke="#F4EBD7" stroke-width="1.8" pathLength="1"/>
+        <path class="canopy-draw" d="M100 70c-18-22-8-46 12-52 8 16 4 34-12 52z" fill="none" stroke="#E8D9C0" stroke-width="1.4" pathLength="1"/>
+        <path class="canopy-draw" d="M100 70c18-22 8-46-12-52-8 16-4 34 12 52z" fill="none" stroke="#E8D9C0" stroke-width="1.4" pathLength="1"/>
+        <path class="canopy-fill" d="M100 78c-28 4-54 28-62 58 18 6 40-2 62-18 22 16 44 24 62 18-8-30-34-54-62-58z" fill="#2F6A4A" opacity="0"/>
+      </svg>
+      <p>Raising the canopy…</p>
+      <div class="copper-ring" style="--p:0"></div>
+    </div>
+  </div>
+
+  <main id="main" class="lost">
+    <div class="lost-inner">
+      <img src="images/missing-leaf.webp" width="180" height="180" alt="">
+      <p class="lost-code">404</p>
+      <h1>This branch isn’t on the canopy.</h1>
+      <p class="lost-lead">The page you asked for is not in this demo. Go back, or return under the grove.</p>
+      <div class="lost-actions">
+        <button class="btn btn-canopy" type="button" id="lost-back">Go back</button>
+        <a class="btn btn-copper" href="index.html">Back home</a>
+      </div>
+    </div>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="js/gsap-init.js"></script>
+  <script>
+    document.getElementById("lost-back").addEventListener("click", function () {
+      if (window.history.length > 1) window.history.back();
+      else window.location.href = "index.html";
+    });
+  </script>
+</body>
+</html>

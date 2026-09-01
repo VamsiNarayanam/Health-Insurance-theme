@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rain desk — Underwriter | Stackly Canopy</title>
+  <meta name="description" content="Claims desk dashboard for Stackly Canopy underwriters. Pre-auth queue, policy book, premium ledger. Demo only.">
+  <link rel="icon" href="images/favicon.webp" type="image/webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,560;0,9..144,600;1,9..144,450;1,9..144,560&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=logo2">
+  <link rel="stylesheet" href="css/pages.css?v=dash2">
+  <link rel="stylesheet" href="css/dashboard.css?v=dash4">
+  <link rel="stylesheet" href="css/responsive.css?v=dash4">
+</head>
+<body data-dash="admin">
+  <div class="dash">
+    <button class="dash-scrim" type="button" aria-label="Close panels"></button>
+    <aside class="dash-side">
+      <a class="brand" href="index.html" aria-label="Stackly Canopy home">
+        <img class="mark-logo" src="images/stackly-canopy.webp" alt="" width="168" height="69">
+      </a>
+      <nav class="dash-nav" aria-label="Desk panels">
+        <button type="button" data-panel="p-over" aria-current="true">Overview</button>
+        <button type="button" data-panel="p-book">Policy book</button>
+        <button type="button" data-panel="p-rain">Rain desk</button>
+        <button type="button" data-panel="p-pre">Pre-auth queue</button>
+        <button type="button" data-panel="p-root">Root directory</button>
+        <button type="button" data-panel="p-led">Premium ledger</button>
+        <button type="button" data-panel="p-flag">Fraud flags</button>
+        <button type="button" data-panel="p-ag">Advisors</button>
+        <button type="button" data-panel="p-set">Settings</button>
+      </nav>
+      <div class="dash-user">
+        <p data-user-chip>Rohan Deshpande</p>
+        <p class="meta">Claims Desk BKC</p>
+        <button class="dash-side-logout" type="button" data-logout>Log out</button>
+      </div>
+    </aside>
+    <div class="dash-main">
+      <div class="dash-top">
+        <button class="dash-drawer-btn" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+        <h1 class="display">Rain desk</h1>
+        <div class="dash-top-tools">
+          <button class="btn btn-canopy dash-top-logout" type="button" data-logout>Log out</button>
+        </div>
+      </div>
+
+      <section class="panel is-on" id="p-over">
+        <div class="kpi-row">
+          <article class="kpi"><b class="num">4</b>Open pre-auths</article>
+          <article class="kpi"><b class="num">8</b>Claims in rain</article>
+          <article class="kpi"><b class="num">11</b>Policies sealed today</article>
+          <article class="kpi"><b class="num">6d</b>Grievance TAT (open)</article>
+        </div>
+        <article class="dash-card">
+          <h3>Live claims (6)</h3>
+          <div class="table-wrap">
+            <table class="data">
+              <thead><tr><th>ID</th><th>Holder</th><th>City</th><th>Stage</th><th>Amount</th></tr></thead>
+              <tbody>
+                <tr><td data-label="ID">RN-24088</td><td data-label="Holder">Leela Menon</td><td data-label="City">Hyderabad</td><td data-label="Stage"><span class="seal-status warn">pre-auth</span></td><td data-label="Amount">₹6,40,000</td></tr>
+                <tr><td data-label="ID">RN-24160</td><td data-label="Holder">Farah Qureshi</td><td data-label="City">Jaipur</td><td data-label="Stage"><span class="seal-status warn">pre-auth</span></td><td data-label="Amount">₹1,84,000</td></tr>
+                <tr><td data-label="ID">RN-24119</td><td data-label="Holder">S. Krishnan</td><td data-label="City">Chennai</td><td data-label="Stage"><span class="seal-status warn">queried</span></td><td data-label="Amount">₹1,10,000</td></tr>
+                <tr><td data-label="ID">RN-24102</td><td data-label="Holder">Arjun Nair</td><td data-label="City">Kochi</td><td data-label="Stage"><span class="seal-status ok">approved</span></td><td data-label="Amount">₹22,400</td></tr>
+                <tr><td data-label="ID">RN-24151</td><td data-label="Holder">Mehta Weaves</td><td data-label="City">Surat</td><td data-label="Stage"><span class="seal-status ok">approved</span></td><td data-label="Amount">₹74,500</td></tr>
+                <tr><td data-label="ID">RN-24130</td><td data-label="Holder">Riya Shah</td><td data-label="City">Pune</td><td data-label="Stage"><span class="seal-status warn">intimated</span></td><td data-label="Amount">—</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+        <article class="dash-card">
+          <h3>Seven-day settlement spark</h3>
+          <canvas class="spark" id="spark" aria-label="Settlement counts rising across seven days"></canvas>
+          <p class="meta">Not a hospital census. Bars are sealed claim counts, Mon–Sun.</p>
+        </article>
+      </section>
+
+      <section class="panel" id="p-book">
+        <article class="dash-card">
+          <h2>Policy book</h2>
+          <input class="search field" id="policy-search" type="search" placeholder="Search number, holder, city…" aria-label="Search policies">
+          <div class="table-wrap"><table class="data"><thead><tr><th>Number</th><th>Product</th><th>Holder</th><th>SI</th><th>City</th><th>Status</th></tr></thead><tbody data-policy-rows></tbody></table></div>
+          <p class="meta">Empty search? Eight demo canopies. No rows is a filter, not a lost book.</p>
+        </article>
+      </section>
+
+      <section class="panel" id="p-rain">
+        <article class="dash-card">
+          <h2>Rain desk</h2>
+          <div class="table-wrap"><table class="data"><thead><tr><th>ID</th><th>Holder</th><th>City</th><th>Stage</th><th>Amount</th><th>Note</th></tr></thead><tbody data-claim-rows></tbody></table></div>
+        </article>
+      </section>
+
+      <section class="panel" id="p-pre">
+        <article class="dash-card">
+          <h2>Pre-auth queue</h2>
+          <div class="table-wrap"><table class="data"><thead><tr><th>Hospital</th><th>Procedure</th><th>Amount</th><th>Age</th><th>Action</th></tr></thead><tbody data-preauth-rows></tbody></table></div>
+          <p class="meta">Approve / Query open the 404 vault in this demo. Nothing is sent to a TPA.</p>
+        </article>
+      </section>
+
+      <section class="panel" id="p-root">
+        <article class="dash-card">
+          <h2>Root directory</h2>
+          <div class="table-wrap"><table class="data"><thead><tr><th>Hospital</th><th>City</th><th>Cashless</th><th>Specialty</th></tr></thead><tbody data-hosp-rows></tbody></table></div>
+        </article>
+      </section>
+
+      <section class="panel" id="p-led">
+        <article class="dash-card">
+          <h2>Premium ledger</h2>
+          <div class="table-wrap"><table class="data"><thead><tr><th>Date</th><th>Policy</th><th>Premium</th><th>GST</th><th>Total</th></tr></thead><tbody data-ledger-rows></tbody></table></div>
+        </article>
+      </section>
+
+      <section class="panel" id="p-flag">
+        <article class="dash-card">
+          <h2>Fraud flags</h2>
+          <p class="meta">Fictional patterns for the theme. No real provider is accused.</p>
+        </article>
+        <article class="flag"><h3>Upcoding on a day-care cataract</h3><p>A demo bill arrived coded as inpatient lens implant with a 3-day stay. The specimen lists cataract as day-care. Flag for query — not a public allegation.</p></article>
+        <article class="flag"><h3>Ghost admission window</h3><p>Two intimations, same member, overlapping midnight hours in different cities. File paused for a call with the household. Could be a duplicate intimation error.</p></article>
+        <article class="flag"><h3>Pharmacy-only pack</h3><p>Reimbursement with no discharge summary — only GST invoices from a chemist. Decline path if documents stay missing after 7 days.</p></article>
+        <article class="flag"><h3>Room upgrade vs printed cap</h3><p>A port-in Elder with a rupee room cap chose a suite. Proportionate deduction explained in the query letter, not a fraud stamp.</p></article>
+      </section>
+
+      <section class="panel" id="p-ag">
+        <article class="dash-card">
+          <h2>Agents / advisors</h2>
+          <div class="table-wrap"><table class="data"><thead><tr><th>Name</th><th>City</th><th>Live canopies</th></tr></thead><tbody data-agent-rows></tbody></table></div>
+        </article>
+      </section>
+
+      <section class="panel" id="p-set">
+        <article class="dash-card" style="max-width:520px">
+          <h2>Settings</h2>
+          <p><strong>Desk hours</strong> Mon–Sat 8:00–20:00 IST</p>
+          <p><strong>Grievance officer</strong> Ananya Rao</p>
+          <p class="meta">Demo note: localStorage key <code>stacklyCanopyUser</code>. Log out clears it. This panel does not save to a server.</p>
+        </article>
+      </section>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="js/canopy-data.js"></script>
+  <script src="js/gsap-init.js"></script>
+  <script src="js/main.js?v=pre1"></script>
+</body>
+</html>

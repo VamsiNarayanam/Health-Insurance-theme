@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My canopy - Client | Stackly Canopy</title>
+  <meta name="description" content="Policyholder dashboard for Canopy Kin 10L and Pulse add-on. E-card, claims, intimations, network finder. Demo only.">
+  <link rel="icon" href="images/favicon.webp" type="image/webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,560;0,9..144,600;1,9..144,450;1,9..144,560&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=logo2">
+  <link rel="stylesheet" href="css/pages.css?v=dash2">
+  <link rel="stylesheet" href="css/dashboard.css?v=dash4">
+  <link rel="stylesheet" href="css/responsive.css?v=dash4">
+</head>
+<body data-dash="client">
+  <div class="dash">
+    <button class="dash-scrim" type="button" aria-label="Close panels"></button>
+    <aside class="dash-side">
+      <a class="brand" href="index.html" aria-label="Stackly Canopy home">
+        <img class="mark-logo" src="images/stackly-canopy.webp" alt="" width="168" height="69">
+      </a>
+      <nav class="dash-nav" aria-label="Member panels">
+        <button type="button" data-panel="c-grove" aria-current="true">My canopy</button>
+        <button type="button" data-panel="c-pol">Policies</button>
+        <button type="button" data-panel="c-card">E-card</button>
+        <button type="button" data-panel="c-cl">Claims</button>
+        <button type="button" data-panel="c-int">Start intimation</button>
+        <button type="button" data-panel="c-root">Root finder</button>
+        <button type="button" data-panel="c-pre">Premiums</button>
+        <button type="button" data-panel="c-pro">Profile</button>
+      </nav>
+      <div class="dash-user">
+        <p data-user-chip>Meera Iyer</p>
+        <p class="meta">CAN-KIN-88421</p>
+        <button class="dash-side-logout" type="button" data-logout>Log out</button>
+      </div>
+    </aside>
+    <div class="dash-main">
+      <div class="dash-top">
+        <button class="dash-drawer-btn" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+        <h1 class="display">Household grove</h1>
+        <div class="dash-top-tools">
+          <button class="btn btn-canopy dash-top-logout" type="button" data-logout>Log out</button>
+        </div>
+      </div>
+
+      <section class="panel is-on" id="c-grove">
+        <div class="kpi-row">
+          <article class="kpi"><b class="num">₹10L</b>Floater SI</article>
+          <article class="kpi"><b class="num">₹1.82L</b>Used this year</article>
+          <article class="kpi"><b class="num">₹8.18L</b>Remaining + restoration</article>
+          <article class="kpi"><b class="num">12 Nov</b>Next premium</article>
+        </div>
+        <article class="dash-card">
+          <h3>Sum insured this year</h3>
+          <p>Restoration: 100% available for an unrelated later admission. NCB does not apply on Kin.</p>
+          <div class="si-bar" aria-hidden="true"><span></span></div>
+        </article>
+        <article class="dash-card">
+          <h3>Branches</h3>
+          <div class="branch-tree">
+            <div class="branch"><span class="dot">M</span><div><strong>Meera Iyer</strong><p class="meta">Self · 38 · proposer</p></div><span class="seal-status ok">Covered</span></div>
+            <div class="branch"><span class="dot">A</span><div><strong>Arun Iyer</strong><p class="meta">Spouse · 41</p></div><span class="seal-status ok">Covered</span></div>
+            <div class="branch"><span class="dot">K</span><div><strong>Kavya Iyer</strong><p class="meta">Daughter · 11</p></div><span class="seal-status ok">Covered</span></div>
+            <div class="branch"><span class="dot">V</span><div><strong>Vihaan Iyer</strong><p class="meta">Son · 8</p></div><span class="seal-status ok">Covered</span></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel" id="c-pol">
+        <div class="dash-card-grid">
+          <article class="certificate">
+            <div class="wax-seal">K</div>
+            <h3>Canopy Kin</h3>
+            <p class="num">CAN-KIN-88421 · ₹10L floater</p>
+            <p class="meta">30-day initial served. PED wait running on Arun’s declared hypertension until Mar 2027.</p>
+            <a class="btn btn-canopy" href="404.html">Download specimen</a>
+          </article>
+          <article class="certificate">
+            <div class="wax-seal">P</div>
+            <h3>Canopy Pulse add-on</h3>
+            <p class="num">CAN-PUL-22655 · ₹25,000 wallet</p>
+            <p class="meta">₹6,400 remaining this year. Not inpatient cover.</p>
+            <a class="btn btn-canopy" href="404.html">Download specimen</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel" id="c-card">
+        <article class="ecard-xl">
+          <div style="display:flex;justify-content:space-between;align-items:start">
+            <div>
+              <p class="kicker">Stackly Canopy</p>
+              <h3>Meera Iyer</h3>
+              <p class="num">CAN-KIN-88421</p>
+              <p>Kin 10L · Pulse add-on · cashless at listed roots</p>
+              <p class="meta">Show this at the TPA desk. Cashless is not every hospital in India — toggle the Root finder.</p>
+            </div>
+            <div>
+              <div class="wax-seal">C</div>
+              <div class="qr-deco" aria-hidden="true" style="margin-top:1rem"></div>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel" id="c-cl">
+        <article class="dash-card">
+          <h2>Claims</h2>
+          <div class="table-wrap">
+            <table class="data">
+              <thead><tr><th>ID</th><th>What</th><th>Stage</th><th>Amount</th></tr></thead>
+              <tbody>
+                <tr><td data-label="ID">RN-24011</td><td data-label="What">Dengue cashless, Ruby Hall, Pune</td><td data-label="Stage"><span class="seal-status ok">reimbursed / cashless closed</span></td><td data-label="Amount">₹48,200</td></tr>
+                <tr><td data-label="ID">RN-23990</td><td data-label="What">Dental reimbursement — implant, not on Pulse list</td><td data-label="Stage"><span class="seal-status bad">declined</span></td><td data-label="Amount">₹18,000</td></tr>
+                <tr><td data-label="ID">RN-24108</td><td data-label="What">OPD Pulse wallet, diagnostics</td><td data-label="Stage"><span class="seal-status ok">paid from wallet</span></td><td data-label="Amount">₹3,200</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="meta">Decline reason on RN-23990: Pulse covers listed dental procedures only; implants are out. The letter named the clause.</p>
+        </article>
+      </section>
+
+      <section class="panel" id="c-int">
+        <article class="dash-card dash-form">
+          <h2>Start intimation</h2>
+          <p class="meta">This demo resets the form and opens the 404 vault. A live desk would SMS a rain number.</p>
+          <form id="intimation-form">
+            <div class="field"><label for="ihosp">Hospital / city</label><input id="ihosp" required placeholder="Ruby Hall, Pune"></div>
+            <div class="field"><label for="iwhen">Planned / emergency</label>
+              <select id="iwhen" required><option>Emergency</option><option>Planned</option></select>
+            </div>
+            <div class="field"><label for="inote">What happened (no full medical record)</label><textarea id="inote" required minlength="8"></textarea></div>
+            <button class="btn btn-copper" type="submit">Intimate the rain desk</button>
+            <p class="form-success">Intimation noted in this demo. A real desk would SMS CAN-KIN-88421 a reference like RN-24xxx.</p>
+          </form>
+        </article>
+      </section>
+
+      <section class="panel" id="c-root">
+        <article class="dash-card">
+          <h2>Root finder</h2>
+          <p class="meta">Cashless only where the hospital is listed. Empty city? Try another — this demo holds six doors.</p>
+          <div class="field" style="max-width:280px;margin:1rem 0">
+            <label for="root-city">City</label>
+            <select id="root-city">
+              <option value="all">All demo roots</option>
+              <option>Pune</option><option>Kochi</option><option>Jaipur</option>
+              <option>Bengaluru</option><option>Hyderabad</option><option>Delhi</option>
+              <option>Kolkata</option><option>Mumbai</option>
+            </select>
+          </div>
+          <div class="dash-root-list" data-root-list></div>
+        </article>
+      </section>
+
+      <section class="panel" id="c-pre">
+        <article class="dash-card">
+          <h2>Premiums</h2>
+          <div class="table-wrap">
+            <table class="data">
+              <thead><tr><th>Date</th><th>What</th><th>Premium</th><th>GST</th><th>Total</th></tr></thead>
+              <tbody>
+                <tr><td data-label="Date">12 Nov 2025</td><td data-label="What">Kin renewal</td><td data-label="Premium">₹18,420</td><td data-label="GST">₹3,315</td><td data-label="Total">₹21,735</td></tr>
+                <tr><td data-label="Date">12 Nov 2025</td><td data-label="What">Pulse add-on</td><td data-label="Premium">₹3,240</td><td data-label="GST">₹583</td><td data-label="Total">₹3,823</td></tr>
+                <tr><td data-label="Date">12 Nov 2024</td><td data-label="What">Kin previous year</td><td data-label="Premium">₹16,900</td><td data-label="GST">₹3,042</td><td data-label="Total">₹19,942</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="meta">Autopay mandate on HDFC ending 4412 — demo note. Failed debit uses the 15-day grace, then the canopy lapses.</p>
+        </article>
+      </section>
+
+      <section class="panel" id="c-pro">
+        <article class="dash-card" style="max-width:520px">
+          <h2>Profile</h2>
+          <p><strong>Name</strong> Meera Iyer</p>
+          <p><strong>Address</strong> 11, Rain Tree Lane, Bandra West, Mumbai 400050</p>
+          <p><strong>Nominee</strong> Arun Iyer (spouse)</p>
+          <p><strong>WhatsApp</strong> +91 98200 44112 (household shared demo)</p>
+          <p class="meta">Edits are not saved in this static theme.</p>
+        </article>
+      </section>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="js/canopy-data.js"></script>
+  <script src="js/gsap-init.js"></script>
+  <script src="js/main.js?v=int1"></script>
+</body>
+</html>
